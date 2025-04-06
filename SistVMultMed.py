@@ -112,10 +112,14 @@ def main():
                 peso=int(input("Ingrese el peso de la mascota: "))
                 fecha=input("Ingrese la fecha de ingreso (dia/mes/año): ")
                 nm=int(input("Ingrese cantidad de medicamentos: "))
-                lista_med=[]
+                lista_med=[] 
 
                 for i in range(0,nm):
                     nombre_medicamentos = input("Ingrese el nombre del medicamento: ")
+                    #verificar que el nombre de los medicamentos no se repita 
+                    if any(med.verNombre().lower() == nombre_medicamentos.lower() for med in lista_med):
+                        print('Ya existe medicamento con este nombre. Porfavor ingrese uno diferente')
+                        pass 
                     dosis =int(input("Ingrese la dosis: "))
                     medicamento = Medicamento()
                     medicamento.asignarNombre(nombre_medicamentos)
