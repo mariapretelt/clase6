@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Medicamento:
     def __init__(self):
         self.__nombre = "" 
@@ -125,7 +127,15 @@ def main():
                 nombre=input("Ingrese el nombre de la mascota: ")
                 tipo=input("Ingrese el tipo de mascota (felino o canino): ")
                 peso=int(input("Ingrese el peso de la mascota: "))
-                fecha=input("Ingrese la fecha de ingreso (dia/mes/año): ")
+
+                while True:
+                    fecha=input("Ingrese la fecha de ingreso (dia/mes/año): ") #modificar
+                    try:
+                        datetime.strptime(fecha, "%d/%m/%Y")
+                        break
+                    except ValueError:
+                        print('Ingrese formato correcto')
+
                 nm=int(input("Ingrese cantidad de medicamentos: "))
                 lista_med=[] 
 
